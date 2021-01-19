@@ -192,6 +192,9 @@ module.exports = (app, connection) => {
                 .getRepository(Guest_1.Guest)
                 .save(guest);
         }
+        else {
+            res.status(401).json({ Message: "Guest not found" });
+        }
         console.log(guest);
         res.send(JSON.stringify(guest));
     }));

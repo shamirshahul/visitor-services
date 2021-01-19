@@ -171,6 +171,8 @@ module.exports = (app: Application, connection: Connection) => {
       const _guest: Guest | undefined = await connection
         .getRepository(Guest)
         .save(guest);
+    } else {
+      res.status(401).json({ Message: "Guest not found" });
     }
     console.log(guest);
     res.send(JSON.stringify(guest));
