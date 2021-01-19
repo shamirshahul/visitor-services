@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: shamir
+      POSTGRES_PASSWORD: shamir@123
+    ports:
+      - "5432:5432"
+    volumes:
+      - hostapp-db:/var/lib/postgresql/data
+
+  server-container:
+    build:
+      context: .
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+
+volumes:
+  hostapp-db:
