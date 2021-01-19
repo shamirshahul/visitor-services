@@ -21,7 +21,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    command: npx typeorm migration:run
+    command: npx typeorm migration:run && node dist/index.js
     ports:
       - "3000:3000"
 
