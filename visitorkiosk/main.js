@@ -6282,7 +6282,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _c0 = function (a1) { return ["/explore", a1]; };
-function WelcomeComponent_a_15_Template(rf, ctx) { if (rf & 1) {
+function WelcomeComponent_a_12_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " Explore ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -6292,7 +6292,6 @@ function WelcomeComponent_a_15_Template(rf, ctx) { if (rf & 1) {
 } }
 const _c1 = function () { return ["/checkin"]; };
 const _c2 = function () { return ["/checkout"]; };
-const _c3 = function () { return ["/admin/welcome"]; };
 class WelcomeComponent extends _user_interfaces_common__WEBPACK_IMPORTED_MODULE_3__["BaseClass"] {
     constructor(route, _settings, translateService) {
         super();
@@ -6319,7 +6318,7 @@ class WelcomeComponent extends _user_interfaces_common__WEBPACK_IMPORTED_MODULE_
     }
 }
 WelcomeComponent.ɵfac = function WelcomeComponent_Factory(t) { return new (t || WelcomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_user_interfaces_common__WEBPACK_IMPORTED_MODULE_3__["SettingsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"])); };
-WelcomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: WelcomeComponent, selectors: [["app-welcome"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]], decls: 18, vars: 21, consts: [[1, "absolute", "inset-0", "bg-transparent", "z-50", "flex", "flex-col", "items-center", "justify-center", "bg-center", "bg-cover"], [1, "w-full"], [1, "flex", "flex-col", "flex-1", "w-full", "items-center", "justify-center", "text-white", "bg-black", "bg-opacity-50", "space-y-4"], [1, "text-2xl"], ["matRipple", "", 1, "text-xl", "py-2", "px-8", "mt-4", "border-2", "border-white", "text-white", "w-40", "whitespace-nowrap", "flex", "items-center", "justify-center", 3, "routerLink"], ["matRipple", "", "class", "text-xl py-2 px-8 mt-4 border-2 border-white text-white w-40 whitespace-nowrap flex items-center justify-center", 3, "routerLink", 4, "ngIf"]], template: function WelcomeComponent_Template(rf, ctx) { if (rf & 1) {
+WelcomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: WelcomeComponent, selectors: [["app-welcome"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵInheritDefinitionFeature"]], decls: 15, vars: 16, consts: [[1, "absolute", "inset-0", "bg-transparent", "z-50", "flex", "flex-col", "items-center", "justify-center", "bg-center", "bg-cover"], [1, "w-full"], [1, "flex", "flex-col", "flex-1", "w-full", "items-center", "justify-center", "text-white", "bg-black", "bg-opacity-50", "space-y-4"], [1, "text-2xl"], ["matRipple", "", 1, "text-xl", "py-2", "px-8", "mt-4", "border-2", "border-white", "text-white", "w-40", "whitespace-nowrap", "flex", "items-center", "justify-center", 3, "routerLink"], ["matRipple", "", "class", "text-xl py-2 px-8 mt-4 border-2 border-white text-white w-40 whitespace-nowrap flex items-center justify-center", 3, "routerLink", 4, "ngIf"]], template: function WelcomeComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "a-topbar-header", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -6335,32 +6334,24 @@ WelcomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](11, "translate");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "a", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](14, "translate");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, WelcomeComponent_a_15_Template, 2, 3, "a", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Powered by Nuevezo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, WelcomeComponent_a_12_Template, 2, 3, "a", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Powered by Nuevezo");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("background-image", "url(" + ctx.background + ")");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](5, 10, "Welcome to Self Service Kiosk"), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](5, 8, "Welcome to Self Service Kiosk"), " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](18, _c1));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](14, _c1));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](8, 12, "Check In"), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](8, 10, "Check In"), " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](19, _c2));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c2));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](11, 14, "Check Out"), " ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](20, _c3));
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](14, 16, "Admin"), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](11, 12, "Check Out"), " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.level);
     } }, directives: [_ui_topbar_header_component__WEBPACK_IMPORTED_MODULE_4__["TopbarHeaderComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"], _angular_material_core__WEBPACK_IMPORTED_MODULE_5__["MatRipple"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"]], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"]], styles: ["a[_ngcontent-%COMP%] {\n                height: 3.5rem;\n                background-color: rgba(255, 255, 255, 0.25);\n            }\n            p[_ngcontent-%COMP%] {\n                position: absolute;\n                right: 0;\n                bottom: 0;\n                margin: 1rem;\n            }"] });
@@ -6399,13 +6390,6 @@ WelcomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
                     {{ 'Check Out' | translate }}
                 </a>
 
-                <a
-                    matRipple
-                    [routerLink]="['/admin/welcome']"
-                    class="text-xl py-2 px-8 mt-4 border-2 border-white text-white w-40 whitespace-nowrap flex items-center justify-center"
-                >
-                    {{ 'Admin' | translate }}
-                </a>
                 <a
                     *ngIf="level"
                     matRipple
@@ -13183,10 +13167,6 @@ const routes = [
     {
         path: 'checkin',
         loadChildren: () => __webpack_require__.e(/*! import() | checkin-checkin-module */ "checkin-checkin-module").then(__webpack_require__.bind(null, /*! ./checkin/checkin.module */ "hs9o")).then((m) => m.VisitorCheckinModule),
-    },
-    {
-        path: 'admin',
-        loadChildren: () => __webpack_require__.e(/*! import() | checkin-admin-admin-module */ "checkin-admin-admin-module").then(__webpack_require__.bind(null, /*! ./checkin/admin/admin.module */ "GgIw")).then((m) => m.AdminCheckinModule),
     },
     { path: 'checkout', component: _checkin_checkout_guest_component__WEBPACK_IMPORTED_MODULE_4__["CheckoutQRScanComponent"] },
     { path: 'checkoutmessage', component: _checkin_checkout_message_component__WEBPACK_IMPORTED_MODULE_5__["CheckoutMessageComponent"] },
