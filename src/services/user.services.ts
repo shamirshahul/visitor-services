@@ -21,7 +21,13 @@ module.exports = (app: Application, connection: Connection) => {
     user.approve = false;
     const saltRounds = 10;
     bcrypt.genSalt(saltRounds, (err, salt) => {
+      if (err) {
+        res.status(500).send("Internal server error");
+      }
       bcrypt.hash(req.body.password, salt, (err, hash) => {
+        if (err) {
+          res.status(500).send("hash error");
+        }
         user.password = hash;
         connection.getRepository(User).save(user);
         res.type("json").status(201).send(user);
@@ -49,6 +55,9 @@ module.exports = (app: Application, connection: Connection) => {
         }
       } else {
         res.status(400).json({ message: "Username or password is incorrect" });
+      }
+      if (err) {
+        res.status(500).send("Unknown error");
       }
     });
   });

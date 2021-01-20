@@ -9,8 +9,14 @@ module.exports = (app: Application, connection: Connection) => {
     user.approve = false;
     const saltRounds = 10;
     bcrypt.genSalt(saltRounds, (err, salt) => {
+      if (err) {
+        res.status(500).send("Internal server error");
+      }
       bcrypt.hash(req.body.password, salt, (err, hash) => {
         user.password = hash;
+        if (err) {
+          res.status(500).send("hash error");
+        }
         connection.getRepository(Admin).save(user);
         res.type("json").status(201).send(user);
       });
@@ -33,6 +39,9 @@ module.exports = (app: Application, connection: Connection) => {
         res.type("json").status(201).send(user);
       } else {
         res.status(400).json({ message: "Username or password is incorrect" });
+      }
+      if (err) {
+        res.status(500).send("Unknown error found");
       }
     });
   });
