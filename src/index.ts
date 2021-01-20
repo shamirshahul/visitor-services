@@ -14,6 +14,7 @@ createConnection()
     require("./services/user.services")(app, connection);
     require("./services/static.services")(app);
     require("./services/Admin.services")(app, connection);
+    require("./services/icalevent.services")(app, connection);
   })
   .catch((error) => console.log(error));
 
