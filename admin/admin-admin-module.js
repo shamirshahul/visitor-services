@@ -487,6 +487,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _host_approval_hostApproval_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./host-approval/hostApproval.component */ "mhs2");
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-pagination */ "oOf3");
 /* harmony import */ var _hostmanage_hostManage_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./hostmanage/hostManage.component */ "K/h4");
+/* harmony import */ var _account_register_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../account/register.component */ "q8HH");
+
 
 
 
@@ -511,6 +513,7 @@ const ROUTES = [
             { path: 'approve', component: _host_approval_hostApproval_component__WEBPACK_IMPORTED_MODULE_9__["HostApproveComponent"] },
             { path: 'host', component: _hostmanage_hostManage_component__WEBPACK_IMPORTED_MODULE_11__["HostManageComponent"] },
             { path: 'welcome', component: _admin_welcome_adminWelcome_component__WEBPACK_IMPORTED_MODULE_8__["AdminWelcomeComponent"] },
+            { path: 'register', component: _account_register_component__WEBPACK_IMPORTED_MODULE_12__["RegisterComponent"] },
         ],
     },
 ];
@@ -960,7 +963,6 @@ class GuestListComponent {
                 return guest;
             });
             this.staticGuests = this.guests;
-            console.log(this.guests);
         });
     }
     filter(filterdate) {
