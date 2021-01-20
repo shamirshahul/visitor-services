@@ -32,6 +32,7 @@ const User_1 = require("../entity/User");
 const nodemailer = __importStar(require("nodemailer"));
 const qr = __importStar(require("qrcode"));
 const Muser_1 = require("../entity/Muser");
+const bcrypt = __importStar(require("bcrypt"));
 const transport = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
@@ -44,8 +45,20 @@ module.exports = (app, connection) => {
     app.post("/users/register", (req, res) => {
         const user = Object.assign(new User_1.User(), req.body);
         user.approve = false;
-        connection.getRepository(User_1.User).save(user);
-        res.type("json").status(201).send(user);
+        const saltRounds = 10;
+        bcrypt.genSalt(saltRounds, (err, salt) => {
+            if (err) {
+                res.status(500).send("Internal server error");
+            }
+            bcrypt.hash(req.body.password, salt, (_err, hash) => {
+                if (_err) {
+                    res.status(500).send("hash error");
+                }
+                user.password = hash;
+                connection.getRepository(User_1.User).save(user);
+                res.type("json").status(201).send(user);
+            });
+        });
     });
     app.post("/users/login", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const username = req.body.username;
@@ -56,17 +69,22 @@ module.exports = (app, connection) => {
         if (user === undefined) {
             res.status(400).json({ message: "User not found or approval pending" });
         }
-        if (user.password === password) {
-            if (user.approve) {
-                res.type("json").status(201).send(user);
+        bcrypt.compare(password, user.password, (err, result) => {
+            if (result) {
+                if (user.approve) {
+                    res.type("json").status(201).send(user);
+                }
+                else {
+                    res.status(400).json({ message: "Not authorized to login" });
+                }
             }
             else {
-                res.status(400).json({ message: "Not authorized to login" });
+                res.status(400).json({ message: "Username or password is incorrect" });
             }
-        }
-        else {
-            res.status(400).json({ message: "Username or password is incorrect" });
-        }
+            if (err) {
+                res.status(500).send("Unknown error");
+            }
+        });
     }));
     app.get("/users/all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const users = yield connection.getRepository(User_1.User).find();
