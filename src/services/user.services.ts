@@ -4,6 +4,7 @@ import { Connection } from "typeorm";
 import * as nodemailer from "nodemailer";
 import * as qr from "qrcode";
 import { Muser } from "../entity/Muser";
+import * as bcrypt from "bcrypt";
 
 const transport = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
@@ -18,8 +19,14 @@ module.exports = (app: Application, connection: Connection) => {
   app.post("/users/register", (req, res) => {
     const user = Object.assign(new User(), req.body);
     user.approve = false;
-    connection.getRepository(User).save(user);
-    res.type("json").status(201).send(user);
+    const saltRounds = 10;
+    bcrypt.genSalt(saltRounds, function (err, salt) {
+      bcrypt.hash(req.body.password, salt, function (err, hash) {
+        user.password = hash;
+        connection.getRepository(User).save(user);
+        res.type("json").status(201).send(user);
+      });
+    });
   });
 
   app.post("/users/login", async (req, res) => {
@@ -32,15 +39,18 @@ module.exports = (app: Application, connection: Connection) => {
     if (user === undefined) {
       res.status(400).json({ message: "User not found or approval pending" });
     }
-    if (user!.password === password) {
-      if (user!.approve) {
-        res.type("json").status(201).send(user);
+
+    bcrypt.compare(password, user!.password, (err, result) => {
+      if (result) {
+        if (user!.approve) {
+          res.type("json").status(201).send(user);
+        } else {
+          res.status(400).json({ message: "Not authorized to login" });
+        }
       } else {
-        res.status(400).json({ message: "Not authorized to login" });
+        res.status(400).json({ message: "Username or password is incorrect" });
       }
-    } else {
-      res.status(400).json({ message: "Username or password is incorrect" });
-    }
+    });
   });
 
   app.get("/users/all", async (req, res) => {
