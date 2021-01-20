@@ -20,8 +20,8 @@ module.exports = (app: Application, connection: Connection) => {
     const user = Object.assign(new User(), req.body);
     user.approve = false;
     const saltRounds = 10;
-    bcrypt.genSalt(saltRounds, function (err, salt) {
-      bcrypt.hash(req.body.password, salt, function (err, hash) {
+    bcrypt.genSalt(saltRounds, (err, salt) => {
+      bcrypt.hash(req.body.password, salt, (err, hash) => {
         user.password = hash;
         connection.getRepository(User).save(user);
         res.type("json").status(201).send(user);
