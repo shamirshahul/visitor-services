@@ -12,9 +12,9 @@ module.exports = (app: Application, connection: Connection) => {
       if (err) {
         res.status(500).send("Internal server error");
       }
-      bcrypt.hash(req.body.password, salt, (err, hash) => {
+      bcrypt.hash(req.body.password, salt, (error, hash) => {
         user.password = hash;
-        if (err) {
+        if (error) {
           res.status(500).send("hash error");
         }
         connection.getRepository(Admin).save(user);

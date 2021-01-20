@@ -24,8 +24,8 @@ module.exports = (app: Application, connection: Connection) => {
       if (err) {
         res.status(500).send("Internal server error");
       }
-      bcrypt.hash(req.body.password, salt, (err, hash) => {
-        if (err) {
+      bcrypt.hash(req.body.password, salt, (_err, hash) => {
+        if (_err) {
           res.status(500).send("hash error");
         }
         user.password = hash;
