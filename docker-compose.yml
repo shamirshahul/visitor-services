@@ -21,7 +21,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    command: bash -c "npx typeorm migration:run && node dist/index.js"
+    command: bash -c "cp ormconfig.prod.json ormconfig.json && npx typeorm migration:run && node dist/index.js"
     ports:
       - "3000:3000"
 

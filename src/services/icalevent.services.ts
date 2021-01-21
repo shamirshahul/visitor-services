@@ -1,4 +1,4 @@
-import { IcalEvent } from "../entity/Icalevent";
+import { IcalEvent } from "../entity/IcalEvent";
 import { Application } from "express";
 import { Connection } from "typeorm";
 import * as nodemailer from "nodemailer";
