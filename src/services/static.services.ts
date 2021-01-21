@@ -5,4 +5,5 @@ module.exports = (app: Application) => {
   app.use("/covidq", express.static("covidq"));
   app.use("/hostapp", express.static("hostapp"));
   app.use("/admin", express.static("admin"));
+  app.use("/calendars", express.static("cals"));
 };
