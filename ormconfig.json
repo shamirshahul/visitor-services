@@ -9,6 +9,7 @@
   "entities": ["src/entity/**/*.{ts,js}"],
   "migrations": ["src/migration/**/*.{ts,js}"],
   "subscribers": ["src/subscriber/**/*.{ts,js}"],
+  "schema": "visitor-services",
   "cli": {
     "entitiesDir": "src/entity",
     "migrationsDir": "src/migration",

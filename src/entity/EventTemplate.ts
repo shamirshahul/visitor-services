@@ -6,6 +6,8 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { EventAttendee } from "./EventAttendee";
+import { EventOrganizer } from "./EventOrganizer";
 
 @Entity()
 export class EventTemplate {
@@ -17,19 +19,11 @@ export class EventTemplate {
   start: string;
   @Column()
   end: string;
-  @OneToMany(() => EventPeople, (attendee) => attendee.id)
-  attendees: EventPeople[];
-  @OneToOne(() => EventPeople)
+  @OneToMany(() => EventAttendee, (attendee) => attendee.eventTemplate, {
+    cascade: true,
+  })
+  attendees: EventAttendee[];
+  @OneToOne(() => EventOrganizer, { cascade: true })
   @JoinColumn()
-  organizer: EventPeople;
-}
-
-@Entity()
-export class EventPeople {
-  @PrimaryGeneratedColumn()
-  id: number;
-  @Column({ default: "NO NAME" })
-  name: string;
-  @Column()
-  email: string;
+  organizer: EventOrganizer;
 }

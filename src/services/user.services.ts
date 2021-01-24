@@ -134,30 +134,30 @@ module.exports = (app: Application, connection: Connection) => {
     });
   });
 
-  app.post("/users/sendmail", async (req, res) => {
-    const email = req.body.email;
-    const unumber = req.body.number;
-    const stamp = Date.now();
-    const cdata = email + "," + unumber + "," + stamp;
-    qr.toDataURL(cdata, (error, src) => {
-      console.log(src);
+  // app.post("/users/sendmail", async (req, res) => {
+  //   const email = req.body.email;
+  //   const unumber = req.body.number;
+  //   const stamp = Date.now();
+  //   const cdata = email + "," + unumber + "," + stamp;
+  //   qr.toDataURL(cdata, (error, src) => {
+  //     console.log(src);
 
-      const message = {
-        from: "admin@nuevezo.com",
-        to: email,
-        subject: "Kiosk Qrcode",
-        html: '<h1>Here is your Qrcode,</h1><p> <img src="' + src + '"> </p>',
-      };
-      transport.sendMail(message, (err, info) => {
-        if (err) {
-          res.sendStatus(500);
-          res.send(error.message);
-          console.log(err);
-        } else {
-          res.send("QR sent");
-          console.log(info);
-        }
-      });
-    });
-  });
+  //     const message = {
+  //       from: "admin@nuevezo.com",
+  //       to: email,
+  //       subject: "Kiosk Qrcode",
+  //       html: '<h1>Here is your Qrcode,</h1><p> <img src="' + src + '"> </p>',
+  //     };
+  //     transport.sendMail(message, (err, info) => {
+  //       if (err) {
+  //         res.sendStatus(500);
+  //         res.send(error.message);
+  //         console.log(err);
+  //       } else {
+  //         res.send("QR sent");
+  //         console.log(info);
+  //       }
+  //     });
+  //   });
+  // });
 };
