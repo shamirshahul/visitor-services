@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { EventAttendee } from "./EventAttendee";
 import { EventOrganizer } from "./EventOrganizer";
+import { Equipment } from "./Equipment";
 
 @Entity()
 export class EventTemplate {
@@ -26,4 +27,8 @@ export class EventTemplate {
   @OneToOne(() => EventOrganizer, { cascade: true })
   @JoinColumn()
   organizer: EventOrganizer;
+  @Column({ nullable: true })
+  attendeenum: number;
+  @Column({ nullable: true })
+  location: string;
 }

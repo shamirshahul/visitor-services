@@ -165,8 +165,9 @@ module.exports = (app: Application, connection: Connection) => {
         },
       });
     if (guest !== undefined) {
+      const checkin = new Date(req.body.checkin * 100).toLocaleString("en-US");
       guest.status = "checkein";
-      guest.checkin = req.body.checkin;
+      guest.checkin = checkin;
       guest.eventid = req.body.eventid;
       const _guest: Guest | undefined = await connection
         .getRepository(Guest)
@@ -187,8 +188,11 @@ module.exports = (app: Application, connection: Connection) => {
         },
       });
     if (guest !== undefined) {
+      const checkout = new Date(req.body.checkout * 100).toLocaleString(
+        "en-US"
+      );
       guest.status = "checkedout";
-      guest.checkout = req.body.checkout;
+      guest.checkout = checkout;
       const _guest: Guest | undefined = await connection
         .getRepository(Guest)
         .save(guest);

@@ -21,6 +21,9 @@ const transport = nodemailer.createTransport({
 module.exports = (app: Application, connection: Connection) => {
   app.post("/event/create", (req, res) => {
     const event: EventTemplate = Object.assign(new EventTemplate(), req.body);
+    event.start = String(Date.parse(req.body.start) / 1000);
+    event.end = String(Date.parse(req.body.end) / 100);
+    console.log(req.body);
     connection.manager.save(event);
 
     const attendees: string[] = req.body.attendees.map(
@@ -33,6 +36,7 @@ module.exports = (app: Application, connection: Connection) => {
     attendees.forEach((element) => {
       const email = element;
       const stamp = Date.now();
+      console.log("stamp  " + stamp);
       console.log(req.body);
       const cdata = email + "," + stamp;
       qr.toDataURL(cdata, (error, src) => {
@@ -42,7 +46,7 @@ module.exports = (app: Application, connection: Connection) => {
           from: "admin@nuevezo.com",
           to: email,
           subject: "Kiosk Qrcode",
-          html: '<h1>Here is your Qrcode,</h1><p> <img src="' + src + '"> </p>',
+          html: `<h1>Here is your Qrcode,</h1><p> <img src="${src}"> </p><a href="http://localhost:3000/covidq/?email=${email}&eventid=AAMkADVlNDY5MTIwLTIxN2UtNDA2MS1iMWUyLTQ2OTQ0NTI1Njc2MgBGAAAAAABkTB8o-3BgQLnfvnuZBFKcBwDP0DMzx6n8QrMKlRKiOuzsAAAAAAENAADP0DMzx6n8QrMKlRKiOuzsAAAVfd0FAAA=&stamp=${stamp}&org=${req.body.organizer.email}&location=${req.body.location}&starttime=${req.body.start}&endtime=${req.body.end}">Attend covid questionnaire and register</a>`,
         };
         transport.sendMail(message, (err, info) => {
           if (err) {

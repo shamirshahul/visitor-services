@@ -45,4 +45,21 @@ module.exports = (app: Application, connection: Connection) => {
       }
     });
   });
+
+  app.get("/admin/users", async (req, res) => {
+    const users: Admin[] = await connection.getRepository(Admin).find();
+    res.send(users);
+  });
+
+  app.post("/admin/delete", async (req, res) => {
+    const user: Admin = Object.assign(new Admin(), req.body);
+    const _user: Admin | undefined = await connection
+      .getRepository(Admin)
+      .findOne({ where: { username: user.username } });
+    if (_user !== undefined) {
+      connection.getRepository(Admin).delete(_user!);
+    } else {
+      res.status(400).json({ message: "User dosent exist" });
+    }
+  });
 };

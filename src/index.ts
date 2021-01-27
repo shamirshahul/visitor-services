@@ -18,6 +18,7 @@ createConnection()
     require("./services/static.services")(app);
     require("./services/Admin.services")(app, connection);
     require("./services/eventTemplate.services")(app, connection);
+    require("./services/Room.services")(app, connection);
   })
   .catch((error) => console.log(error));
 
